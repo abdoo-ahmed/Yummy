@@ -5,7 +5,7 @@ const App = () => {
   return <React.Fragment>
     <SidebarProvider>
       <AppSidebar />
-      <main >
+      <main>
         <SidebarTrigger />
       </main>
     </SidebarProvider>

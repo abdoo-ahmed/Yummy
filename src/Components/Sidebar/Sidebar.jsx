@@ -2,6 +2,7 @@ import _default from "eslint-plugin-react-refresh";
 import React, { useState, createContext, useContext } from "react";
 const SidebarContext = createContext();
 import { FaBars, FaTimes, FaGlobe, FaShareAlt, FaFacebook, FaTwitter } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "20rem";
@@ -54,14 +55,14 @@ export function Sidebar() {
       }}
     >
       <ul className={isOpen ? _default : "animate__animated animate__bounceOutLeft"}>
-        <li style={{ animationDelay: isOpen?"0.2s":_default }} className={isOpen? 'animate__animated animate__fadeInUp' : _default }> Search </li>
-        <li style={{ animationDelay: isOpen?"0.3s":_default }} className={isOpen? 'animate__animated animate__fadeInUp' : _default }> Categories </li>
-        <li style={{ animationDelay: isOpen?"0.4s":_default }} className={isOpen? 'animate__animated animate__fadeInUp' : _default }> Area </li>
-        <li style={{ animationDelay: isOpen?"0.5s":_default }} className={isOpen? 'animate__animated animate__fadeInUp' : _default }> Ingredients </li>
-        <li style={{ animationDelay: isOpen?"0.6s":_default }} className={isOpen? 'animate__animated animate__fadeInUp' : _default }> Contact Us </li>
+        <li style={{ animationDelay: isOpen?"0.2s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'search'}>Search</NavLink> </li>
+        <li style={{ animationDelay: isOpen?"0.3s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'categories'}>Categories</NavLink> </li>
+        <li style={{ animationDelay: isOpen?"0.4s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }>  <NavLink to={'area'}>Area</NavLink> </li>
+        <li style={{ animationDelay: isOpen?"0.5s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'ingredients'}>Ingredients</NavLink> </li>
+        <li style={{ animationDelay: isOpen?"0.6s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'contactUs'}>Contact Us</NavLink> </li>
       </ul>
 
-      <div className={isOpen?"bottom-5 left-10 text-sm text-white space-y-2 animate__animated animate__backInLeft" : "bottom-5 left-10 text-sm text-white space-y-2 animate__animated animate__bounceOutLeft"}>
+        <div className={isOpen?"bottom-5 left-10 text-sm text-white space-y-2 animate__animated animate__backInLeft" : "bottom-5 left-10 text-sm text-white space-y-2 animate__animated animate__bounceOutLeft"}>
           <div className="flex items-center space-x-3 text-lg">
             <FaFacebook className="cursor-pointer" />
             <FaTwitter className="cursor-pointer" />
@@ -75,6 +76,7 @@ export function Sidebar() {
 
 
 export function SidebarTrigger() {
+  
   const { isOpen, setIsOpen } = useSidebar();
 
   return (
