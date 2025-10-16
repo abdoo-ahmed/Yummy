@@ -1,14 +1,12 @@
 import React from 'react'
-import { SidebarProvider, AppSidebar, SidebarTrigger } from "./Components/Sidebar/Sidebar";
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Components/Routes/Routers';
 
 const App = () => {
   return <React.Fragment>
-    <SidebarProvider>
-      <AppSidebar />
-      <main>
-        <SidebarTrigger />
-      </main>
-    </SidebarProvider>
+
+    <RouterProvider router={router} />
+
   </React.Fragment>
 }
 
