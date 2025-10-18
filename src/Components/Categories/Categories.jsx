@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 const Categories = () => {
 
@@ -18,11 +19,9 @@ const Categories = () => {
         getCatigoris();
     },[])
 
-    
   return <>
-    <div className="grid grid-cols-1 h-auto sm:grid-cols-2 mb-5 lg:grid-cols-4 gap-4">
+   {Data? <div className="grid grid-cols-1 h-auto sm:grid-cols-2 mb-5 lg:grid-cols-4 gap-4">
         {Data?.map((Category) => {
-            
 
         return (
             
@@ -56,7 +55,7 @@ const Categories = () => {
             </div>
         );
         })}
-    </div>
+    </div> : <LoadingScreen/>}
   </>
 }
 
