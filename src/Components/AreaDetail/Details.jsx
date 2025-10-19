@@ -57,21 +57,16 @@ const Details = () => {
                 <p className="text-2xl font-bold mb-3">{`Recipes :`}</p>
                 <div className="">
                   {arr.map((iteratevalue, index) => {
+                    const measure = product[`strMeasure${iteratevalue}`];
+                    const ingredient = product[`strIngredient${iteratevalue}`];
+                    if (!measure || !ingredient) return null;
                     return (
-                      <p
-                        className={
-                          product[`strMeasure${iteratevalue}`] != " "
-                            ? "inline-block bg-[#CFF4FC] m-2 p-1.5 rounded-xl text-[#055160]"
-                            : ""
-                        }
-                        key={index}
-                      >
-                        {product[`strMeasure${iteratevalue}`] != " "
-                          ? `${product[`strMeasure${iteratevalue}`]} ${
-                              product[`strIngredient${iteratevalue}`]
-                            }`
-                          : null}
-                      </p>
+                       <p
+                            key={index}
+                            className="inline-block bg-[#CFF4FC] m-2 p-1.5 rounded-xl text-[#055160]"
+                        >
+                            {`${measure} ${ingredient}`}
+                        </p>
                     );
                   })}
                 </div>
