@@ -4,7 +4,6 @@ import axios from "axios";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 const Details = () => {
-
   const IdDetails = localStorage.getItem("Details");
   const { data, isLoading } = useQuery({
     queryKey: ["Detail"],
@@ -33,7 +32,7 @@ const Details = () => {
         <div className="md:col-span-3">
           {data.map((product, index) => {
             return (
-              <div key={index} className="">
+              <div key={index}>
                 <img
                   className="w-full rounded-md"
                   src={product.strMealThumb}
@@ -50,23 +49,23 @@ const Details = () => {
 
           {data.map((product, index) => {
             return (
-              <div key={index} className="">
+              <div key={index}>
                 <p className="font-normal mb-3">{product.strInstructions}</p>
                 <p className="text-2xl font-bold">{`Area : ${product.strArea}`}</p>
                 <p className="text-2xl font-bold">{`Category : ${product.strCategory}`}</p>
                 <p className="text-2xl font-bold mb-3">{`Recipes :`}</p>
-                <div className="">
+                <div>
                   {arr.map((iteratevalue, index) => {
                     const measure = product[`strMeasure${iteratevalue}`];
                     const ingredient = product[`strIngredient${iteratevalue}`];
                     if (!measure || !ingredient) return null;
                     return (
-                       <p
-                            key={index}
-                            className="inline-block bg-[#CFF4FC] m-2 p-1.5 rounded-xl text-[#055160]"
-                        >
-                            {`${measure} ${ingredient}`}
-                        </p>
+                      <p
+                        key={index}
+                        className="inline-block bg-[#CFF4FC] m-2 p-1.5 rounded-xl text-[#055160]"
+                      >
+                        {`${measure} ${ingredient}`}
+                      </p>
                     );
                   })}
                 </div>

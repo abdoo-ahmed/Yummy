@@ -1,6 +1,5 @@
 import _default from "eslint-plugin-react-refresh";
 import React, { useState, createContext, useContext } from "react";
-const SidebarContext = createContext();
 import { FaBars, FaTimes, FaGlobe, FaShareAlt, FaFacebook, FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -8,6 +7,7 @@ const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "20rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
+const SidebarContext = createContext();
 export function SidebarProvider({ children, defaultOpen = false }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -42,7 +42,7 @@ function useSidebar() {
 }
 
 export function Sidebar() {
-  const { isOpen } = useSidebar();
+  const { isOpen ,setIsOpen } = useSidebar();
 
   return (
     <aside
@@ -54,7 +54,7 @@ export function Sidebar() {
         padding: isOpen ? "1.5rem" : "0",
       }}
     >
-      <ul className={isOpen ? _default : "animate__animated animate__bounceOutLeft"}>
+      <ul onClick={() => setIsOpen(!isOpen)} className={isOpen ? _default : "animate__animated animate__bounceOutLeft"}>
         <li style={{ animationDelay: isOpen?"0.2s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'search'}>Search</NavLink> </li>
         <li style={{ animationDelay: isOpen?"0.3s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }> <NavLink to={'categories'}>Categories</NavLink> </li>
         <li style={{ animationDelay: isOpen?"0.4s":_default }} className={isOpen? 'animate__animated animate__fadeInUp mb-3' : _default }>  <NavLink to={'area'}>Area</NavLink> </li>
