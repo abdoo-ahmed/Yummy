@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "20rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
+const SIDEBAR_KEYBOARD_SHORTCUT = "enter";
 
 const SidebarContext = createContext();
 export function SidebarProvider({ children, defaultOpen = false }) {

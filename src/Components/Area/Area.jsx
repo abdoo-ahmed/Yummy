@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import IconArea from "../Icons/IconArea";
+
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Areacontext } from "../Contexts/AreaContext";
+import IconArea from "../../assets/Icons/IconArea";
 
 const Area = () => {
   const { setCountries } = useContext(Areacontext);

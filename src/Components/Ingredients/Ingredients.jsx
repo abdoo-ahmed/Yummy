@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { Ingredientcontext } from "../Contexts/IngredientContext";
 import { Link } from "react-router-dom";
-import IconsIngredient from "../Icons/IconsIngredient";
+import IconsIngredient from "../../assets/Icons/IconsIngredient";
 
 const Ingredients = () => {
   const { setTypeIngredient } = useContext(Ingredientcontext);
