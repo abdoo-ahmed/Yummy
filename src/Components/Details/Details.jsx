@@ -56,8 +56,7 @@ const Details = () => {
                 <p className="text-2xl font-bold mb-3">{`Recipes :`}</p>
                 <div>
                   {arr.map((iteratevalue, index) => {
-                    const measure = product[`strMeasure${iteratevalue}`];
-                    const ingredient = product[`strIngredient${iteratevalue}`];
+                    const { [`strMeasure${iteratevalue}`]: measure, [`strIngredient${iteratevalue}`]: ingredient } = product;
                     if (!measure || !ingredient) return null;
                     return (
                       <p
